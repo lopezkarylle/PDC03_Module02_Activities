@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PDC03_Activity02.Activity4">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="txtLabel"
+                   Text="Welcome"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" />
+
+            <Slider x:Name="SliderScale"
+                    BindingContext="{x:Reference txtLabel}"
+                    MinimumTrackColor="CadetBlue"
+                    MaximumTrackColor="Blue"
+                    ThumbColor="DeepSkyBlue"
+                    VerticalOptions="CenterAndExpand"
+                    Value="{Binding Scale, Mode=OneWayToSource}"
+                    Maximum="10"/>
+
+            <Slider x:Name="SlideRotate"
+                    BindingContext="{x:Reference txtLabel}"
+                    Maximum="360"
+                    MinimumTrackColor="CadetBlue"
+                    MaximumTrackColor="Blue"
+                    ThumbColor="DeepSkyBlue"
+                    Value="{Binding Rotation, Mode=OneWayToSource}"/>
+
+            <Slider x:Name="SlideRotateX"
+                    BindingContext="{x:Reference txtLabel}"
+                    Maximum="360"
+                    MinimumTrackColor="CadetBlue"
+                    MaximumTrackColor="Blue"
+                    ThumbColor="DeepSkyBlue"
+                    Value="{Binding RotationX, Mode=OneWayToSource}"/>
+
+            <Slider x:Name="SlideRotateY"
+                    BindingContext="{x:Reference txtLabel}"
+                    Maximum="360"
+                    MinimumTrackColor="CadetBlue"
+                    MaximumTrackColor="Blue"
+                    ThumbColor="DeepSkyBlue"
+                    Value="{Binding RotationY, Mode=OneWayToSource}"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+            </Grid>
+
+                    <Label BindingContext="{x:Reference SliderScale}"
+                   Text="{Binding Value, StringFormat='Scale {0:F1}'}"
+                   VerticalTextAlignment="Center"
+                   FontSize="Large"/>
+
+            <Label BindingContext="{x:Reference Name=SlideRotate}"
+                   Text="{x:Binding Value, StringFormat='Rotation {0:f}'}"
+                   FontSize="Large"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
